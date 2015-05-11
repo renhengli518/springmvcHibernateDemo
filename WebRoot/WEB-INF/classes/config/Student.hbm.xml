@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.renhengli.demo.domain.Student" table="student">
+		<id name="id" column="id" type="long">
+			<generator class="uuid" />
+		</id>
+		<property name="name" column="name" type="string" />
+		<property name="classNo" column="classNo" type="string" />
+		<property name="sex" column="sex" type="integer"/>
+		<property name="teacherName" column="teacherName" type="string"/>
+	</class>
+</hibernate-mapping>
