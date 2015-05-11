@@ -4,15 +4,12 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import org.springframework.stereotype.Service;
 
 import com.renhengli.demo.dao.PersonDao;
-import com.renhengli.demo.domain.Person;
+import com.renhengli.demo.entity.Person;
 import com.renhengli.demo.service.PersonService;
 
-@Entity
 @Service("personService")
 public class PersonServiceImpl implements PersonService {
 	@Resource

@@ -3,7 +3,7 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.renhengli.demo.domain.Person" table="persons">
+	<class name="com.renhengli.demo.entity.Person" table="persons">
 		<id name="id" column="id" type="string">
 			<generator class="uuid" />
 		</id>

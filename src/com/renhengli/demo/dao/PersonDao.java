@@ -2,7 +2,7 @@ package com.renhengli.demo.dao;
 
 import java.util.List;
 
-import com.renhengli.demo.domain.Person;
+import com.renhengli.demo.entity.Person;
 
 public interface PersonDao {
 		public void savePerson(Person p);

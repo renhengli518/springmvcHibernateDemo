@@ -4,24 +4,20 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import javax.persistence.Entity;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
-import org.springframework.stereotype.Repository;
 
 import com.renhengli.demo.dao.PersonDao;
-import com.renhengli.demo.domain.Person;
+import com.renhengli.demo.entity.Person;
 
-@Entity
-@Repository("personDao")
 public class PersonDaoImpl implements PersonDao {
-//	private HibernateTemplate hibernateTemplate;
-//
-//	public PersonDaoImpl(HibernateTemplate hibernateTemplate) {
-//		this.hibernateTemplate = hibernateTemplate;
-//	}
+	private HibernateTemplate hibernateTemplate;
 
-	@Resource(name="sessionFactory")
+	public PersonDaoImpl(HibernateTemplate hibernateTemplate) {
+		this.hibernateTemplate = hibernateTemplate;
+	}
+
+	@Resource(name = "sf")
 	private SessionFactory sf;
 
 	public void deletePerson(Person p) {
