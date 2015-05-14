@@ -6,12 +6,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <html>
   <head>
-    <title>personList.jsp</title>
+    <title>nameList.jsp</title>
   </head>
   
   <body>
   <a href="<%=path %>/per/addPersonUI">添加person</a><br>
-  <a href="<%=path %>/per/nameList">按照姓名查找</a><br>
     <table border="1" width="500">
     <tr>
     <td>name</td>

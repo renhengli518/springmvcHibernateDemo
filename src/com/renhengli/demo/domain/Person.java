@@ -3,15 +3,21 @@ package com.renhengli.demo.domain;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.ColumnResult;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SqlResultSetMapping;
+import javax.persistence.SqlResultSetMappings;
 import javax.persistence.Table;
 
+//@SqlResultSetMappings(@SqlResultSetMapping(name = "personSetMapping", entities = {}, columns = {
+//		@ColumnResult(name = "name"), @ColumnResult(name = "age"),
+//		@ColumnResult(name = "address") }))
 @Entity
-@Table(name = "person")
-public class Person implements Serializable{
+@Table(name="persons")
+public class Person implements Serializable {
 
 	private String id;
 	private String name;
@@ -20,7 +26,7 @@ public class Person implements Serializable{
 
 	@Id
 	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	public String getId() {
 		return id;
 	}
