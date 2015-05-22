@@ -4,12 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import org.springframework.stereotype.Service;
 
 import com.renhengli.demo.dao.PersonDao;
-import com.renhengli.demo.domain.Person;
+import com.renhengli.demo.entity.Person;
 import com.renhengli.demo.service.PersonService;
 
 @Service("personService")
@@ -35,10 +33,6 @@ public class PersonServiceImpl implements PersonService {
 
 	public void updatePerson(Person p) {
 		personDao.updatePerson(p);
-	}
-
-	public List<Person> queryPersonListByNames(String[] name) {
-		return personDao.queryPersonListByNames(name);
 	}
 
 }

@@ -11,7 +11,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   <a href="<%=path %>/per/addPersonUI">添加person</a><br>
-  <a href="<%=path %>/per/nameList">按照姓名查找</a><br>
     <table border="1" width="500">
     <tr>
     <td>name</td>

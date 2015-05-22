@@ -1,36 +1,23 @@
 package com.renhengli.demo.dao.daoImpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.renhengli.demo.dao.PersonDao;
-import com.renhengli.demo.domain.Person;
+import com.renhengli.demo.entity.Person;
 
-@Repository("personDao")
 public class PersonDaoImpl implements PersonDao {
-	// private HibernateTemplate hibernateTemplate;
-	//
-	// public PersonDaoImpl(HibernateTemplate hibernateTemplate) {
-	// this.hibernateTemplate = hibernateTemplate;
-	// }
-//	@PersistenceContext
-//	private EntityManager entityManger;
-	@Resource(name = "hibernateTemplate")
 	private HibernateTemplate hibernateTemplate;
 
-	@Resource(name = "sessionFactory")
+	public PersonDaoImpl(HibernateTemplate hibernateTemplate) {
+		this.hibernateTemplate = hibernateTemplate;
+	}
+
+	@Resource(name = "sf")
 	private SessionFactory sf;
 
 	public void deletePerson(Person p) {
@@ -45,34 +32,11 @@ public class PersonDaoImpl implements PersonDao {
 		return (Person) sf.getCurrentSession().get(Person.class, id);
 	}
 
-	@Transactional(rollbackFor = { Exception.class, RuntimeException.class })
 	public void savePerson(Person p) {
 		sf.getCurrentSession().save(p);
 	}
 
 	public void updatePerson(Person p) {
 		sf.getCurrentSession().update(p);
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<Person> queryPersonListByNames(String[] name) {
-		StringBuffer sb = new StringBuffer();
-		sb.append("from Person where name in (");
-		for (int i = 0; i < name.length; i++) {
-			sb.append("'" + name[i] + "'");
-			if (i < name.length - 1) {
-				sb.append(",");
-			}
-		}
-		sb.append(")");
-		// return null;
-		List<Person> list=  new ArrayList<Person>();
-		try {
-			list = hibernateTemplate.find(sb.toString());
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		return list;
 	}
 }
