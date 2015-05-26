@@ -3,12 +3,14 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.renhengli.demo.entity.Person" table="persons">
+	<class name="com.renhengli.demo.domain.Person" table="persons">
 		<id name="id" column="id" type="string">
+			<!--<generator class="sequence">
+			</generator>-->
 			<generator class="uuid" />
 		</id>
 		<property name="name" column="name" type="string" />
 		<property name="age" column="age" type="integer" />
-		<property name="address" column="address" type="string"/>
+		<property name="address" column="address" type="string" />
 	</class>
 </hibernate-mapping>
